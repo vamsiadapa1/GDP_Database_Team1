@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  nav {
+    background-color: gray;
+    color: #fff;
+    padding: 10px;
+    height: auto;
+    width: 150px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  nav ul li a:hover {
+    background-color:#45a049;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #45a049;
+  }
+
+  .content {
+    flex: 1;
+    margin-left: 20px;
+  }
+
+  .search-bar {
+    margin: 20px auto;
+    text-align: center;
+    order: 1; /* Move search bar to the top */
+  }
+
+  .search-bar input[type="text"] {
+    width: 400px;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .search-bar button[type="submit"] {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-bar button:hover {
+    background-color: #45a049;
+  }
+
+  .link-container {
+    margin-top: 40px;
+    text-align: left;
+    order: 3; /* Move link container below the image container */
+  }
+
+  .link-container a {
+    padding: 10px 20px;
+    color: blue;
+    font-size: 150%;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .link-container a:hover {
+    text-decoration: underline blue;
+  }
+
+  .description-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    order: 4; /* Move description container below the link container */
+  }
+
+  .image-slider {
+    position: relative;
+    margin-left: 100px;
+    width: 800px;
+    height: 400px;
+  }
+  
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider-images {
+    display: flex;
+    transition: transform 1s ease 0;
+  }
+  
+  .slider-images img {
+    width: 800px;
+    height: 400px;
+  }
+  
+  .slider-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #555;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    font-size: 18px;
+    color: #bbb;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .prev {
+    left: 10px;
+    color:white;
+    font-size: xx-large;
+  }
+  
+  .next {
+    right: 10px;
+    color:white;
+    font-size: xx-large;
+  }
+  
+  
