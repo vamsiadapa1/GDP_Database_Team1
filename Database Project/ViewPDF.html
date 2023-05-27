@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .container {
+      max-width: 1200px;
+      margin-top: 100px;
+      padding: 20px;
+    }
+  
+    .document-section {
+      margin-bottom: 40px;
+    }
+  
+    .document-embed {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .open-search-button {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header>
+</header>
+<div>
+<button class="open-search-button">Open Search Instructions</button>
+</div>
+<div class="container">
+  <div class="document-section">
+    <embed src="1910 Dec[2].pdf" type="application/pdf" class="document-embed" />
+  </div>
+</div>
+
+<script>
+    const openSearchButton = document.querySelector('.open-search-button');
+  
+  openSearchButton.addEventListener('click', () => {
+    window.alert("Press Ctrl+F to search within pdf");
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Make Admin</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .form-group button {
+      background-color: maroon;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .error-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Make Admin</h2>
+    <div id="message-container"></div>
+    <form id="admin-form">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Make Admin</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const adminForm = document.getElementById('admin-form');
+    const messageContainer = document.getElementById('message-container');
+
+    adminForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const usernameInput = document.getElementById('username');
+      const emailInput = document.getElementById('email');
+
+      const username = usernameInput.value.trim();
+      const email = emailInput.value.trim();
+
+      if (username === '' || email === '') {
+        showMessage('Please enter both username and email.', 'error');
+      } else {
+        // Replace this with your own logic to make the user as admin
+        // You can send an AJAX request to your server to update the user's role
+        // For this example, we'll simply display a success message
+
+        showMessage('User successfully made as admin!', 'success');
+
+        // Clear the form fields
+        usernameInput.value = '';
+        emailInput.value = '';
+      }
+    });
+
+    function showMessage(message, type) {
+      messageContainer.innerHTML = `<p class="${type}-message">${message}</p>`;
+    }
+  </script>
+</body>
+</html>
