@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Website</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    .nav{
+        height: 100vh;
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <h1>The History of Black People</h1>
+</header>
+
+<div class="container">
+  <nav>
+    <ul>
+      <li><a href="admin.html">Home</a></li>
+      <li><a href="#profile">Admin Profile</a></li>
+      <li class="dropdown">
+        <a href="#Ouery_Database">Query Database</a>
+        <div class="dropdown-content">
+          <a href="uploaddelete.html">Upload</a>
+          <a href="uploaddelete.html">Delete</a>  
+        </div>
+      </li>
+      <li><a href="giveAccess.html">Give Access</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Search...">
+      <button id="search-button" type="submit">Search</button>
+      <div class="dropdown">
+        <button type="submit">Sort By</button>
+        <div class="dropdown-content">
+          <a href="#Year">Year</a>
+          <a href="#Author">Author</a>
+        </div>
+    </div>
+    <h1>Search Results</h1>
+    <div class="link-container">
+      <a href="ViewPDF.html" target="_blank"></a>
+    </div>
+    <p class="info" style="font-style: italic;"></p>
+    <div class="description-container">
+      <p></p>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+
+<script>
+  
+  // JavaScript code
+  document.getElementById("search-button").addEventListener("click", function() {
+    var searchKeyword = document.getElementById("search-input").value;
+
+    // Get the paragraph content
+    var newContent = "The object of this publication is to set forth those facts and arguments which show the danger of race prejudice, particularly as manifested to-day toward colored people. It takes its name from the fact that the editors believe that this is a critical time in the history of the advancement of men. Catholicity and tolerance, reason and forbearance can to-day make the world-old dream of human brotherhood approach realization; while bigotry and prejudice, emphasized race consciousness and force can repeat the awful history of the contact of nations and groups in the past. We strive for this higher and broader vision of Peace and Good Will. The policy of THE CRISIS will be simple and well defined: It will first and foremost be a newspaper: it will record important happenings and movements in the world which bear on the great problem of inter-racial rela- tions, and especially those which affect the Negro-American. Secondly, it will be a review of opinion and literature, recording briefly books, articles, and important expressions of opinion in the white and colored press on the race problem. Thirdly, it will publish a few short articles. Finally, its editorial page will stand for the rights of men, irrespective of color or race, for the highest ideals of American democracy, and for reasonable but earnest and persistent attempt to gain these rights and realize these ideals. The magazine will be the organ of no clique or party and will avoid personal rancor of all sorts. In the absence of proof to the contrary it will assume honesty of purpose on the part of all men. North and South, white and black.";
+    if (newContent.includes(searchKeyword)) {
+      // Replace the search keyword with the same word wrapped in <strong> tags for bold styling
+        var regex = new RegExp(searchKeyword, 'gi');
+
+// Replace the matching words in the new content with the same words wrapped in a <span> with a class for highlighting
+var highlightedContent = newContent.replace(regex, '<span class="highlight">$&</span>');
+
+      // Update the paragraph element with the new bold content
+      var paragraph = document.querySelector(".description-container p");
+      paragraph.innerHTML = highlightedContent;
+      var link = document.querySelector(".link-container a");
+      link.innerHTML = "1910 Dec[2].pdf";
+
+
+}
+
+    else{
+        var link = document.querySelector(".link-container a");
+      link.innerHTML = "";
+        var paragraph = document.querySelector(".description-container p");
+      paragraph.innerHTML = "No Match Found";
+    }
+
+
+  });
+</script>
+
+
+</body>
+</html>

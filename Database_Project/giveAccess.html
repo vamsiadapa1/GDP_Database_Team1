@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Make Admin</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 1200px;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      margin-left: 250px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .form-group button {
+      background-color: maroon;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .error-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>History of Black People</h1>
+  </header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="admin.html">Home</a></li>
+        <li><a href="#profile">Admin Profile</a></li>
+        <li class="dropdown">
+          <a href="#Edit_Database">Query Database</a>
+          <div class="dropdown-content">
+            <a href="uploaddelete.html">Upload</a>
+            <a href="uploaddelete.html">Delete</a>
+          </div>
+        </li>
+        <li><a href="giveAccess.html">Give Access</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="message-container"></div>
+    <form id="admin-form">
+      <div class="form-group">
+        <h1>Make Admin</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Make Admin</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const makeAdminButton = document.getElementById('make-admin-button');
+
+makeAdminButton.addEventListener('click', function() {
+  const usernameInput = document.getElementById('username');
+  const emailInput = document.getElementById('email');
+
+  const username = usernameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  if (username === '' || email === '') {
+    showMessage('Please enter both username and email.', 'error');
+  } else {
+    const mailtoUrl = `mailto:${email}?subject=Congratulations on becoming an admin!&body=Hello ${username},%0D%0A%0D%0ACongratulations! You have been made an admin. Here are your credentials:%0D%0AUsername: ${username}%0D%0APassword: [Insert password here]%0D%0A%0D%0APlease use these credentials to access the admin features.%0D%0A%0D%0ABest regards,%0D%0AThe History of Black People team`;
+
+    window.location.href = mailtoUrl;
+
+    showMessage('Email sent successfully!', 'success');
+
+    // Clear the form fields
+    usernameInput.value = '';
+    emailInput.value = '';
+  }
+});
+
+function showMessage(message, type) {
+  const messageContainer = document.getElementById('message-container');
+  messageContainer.innerHTML = `<p class="${type}-message">${message}</p>`;
+}
+
+  </script>
+</body>
+</html>
